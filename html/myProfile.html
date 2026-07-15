@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[과제]나의 소개</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 50px 20px;
+            background-color: #f5f7fb;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 0;
+            color: #666;
+        }
+
+        #profile-board {
+            display: flex;
+            justify-content:space-evenly;
+        }
+
+        .card {
+            width: 300px;
+            height: 500px;
+            padding: 25px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #eee;
+            font-size: 21px;
+        }
+
+        ul,
+        ol {
+            padding-left: 23px;
+            line-height: 2;
+        }
+
+        li {
+            padding-left: 4px;
+        }
+
+        li img{
+            display:none;
+        }
+
+        li:hover img{
+            display:block;
+            width: 200px;
+        }
+
+        dt {
+            margin-top: 16px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        dd {
+            margin: 6px 0 0 0;
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>👋 안녕하세요! 저를 소개합니다</h1>
+        <p>
+            제가 좋아하는 것들과 올해의 계획,
+            그리고 저를 표현하는 단어들입니다.
+        </p>
+    </header>
+
+    <main id="profile-board">
+        <section class="card">
+            <h2>🍕 내가 좋아하는 음식</h2>
+
+            <ul>
+                <li>피자 (w. 야무진 토핑)<img src="image/pizza.png"></li>
+                <li>체리</li>
+                <li>블루베리 파르페</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>📅 올해 할 일</h2>
+
+            <ol>
+                <li>SKALA 열심히 참여하기 *^^*</li>
+                <li>전공 자격증 따기</li>
+                <li>다이어트</li>
+            </ol>
+        </section>
+
+        <section class="card">
+            <h2>✨ 나를 설명하는 단어들</h2>
+
+            <dl>
+                <dt>탐구심</dt>
+                <dd>
+                    단순히 사용하는 것이 아니라
+                    원리를 이해하려고 노력합니다.
+                </dd>
+
+                <dt>차분함</dt>
+                <dd>
+                    문제를 하나씩 분석하며 해결하는 편입니다.
+                </dd>
+
+                <dt>사용자 중심</dt>
+                <dd>
+                    기능뿐 아니라 사용하기 편한 화면도
+                    중요하게 생각합니다.
+                </dd>
+
+                <dt>배움</dt>
+                <dd>
+                    새로운 지식을 배우는 과정 자체를 즐깁니다.
+                </dd>
+            </dl>
+        </section>
+    </main>
+</body>
+</html>
