@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[과제]나의 강의 일정</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, "맑은 고딕", sans-serif;
+            background-color: #f5f7fb;
+            color: #000000;
+        }
+
+        .timetable-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        hr {
+            background: rgb(224, 224, 224);
+            height: 3px;
+            border:0
+        }
+
+        #table-div {
+            padding-top: 50px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background-color: white;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+        }
+
+        th,
+        td {
+            border: 1px solid #777;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 1.5;
+        }
+
+        th {
+            background-color: #eeeeee;
+            font-weight: bold;
+        }
+
+        .time {
+            width: 120px;
+            font-weight: bold;
+            background-color: #fafafa;
+        }
+
+        .lunch {
+            background-color: #fff7d6;
+            font-weight: bold;
+        }
+
+        td:hover {
+            background-color: #eef5ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timetable-wrap">
+        <h1>&#128197; 나의 강의 시간표</h1>
+        <br><hr>
+
+        <div id="table-div">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="time">시간</th>
+                        <th>월요일</th>
+                        <th>화요일</th>
+                        <th>수요일</th>
+                        <th>목요일</th>
+                        <th>금요일</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="time">09:00 - 10:00</td>
+                        <td rowspan="3">
+                            Vue.js<br>
+                            웹 프레임워크 &#128187;
+                        </td>
+                        <td>
+                            네트워크<br>
+                            보안 기초 &#128274;
+                        </td>
+                        <td rowspan="3">
+                            웹 시스템<br>
+                            설계 및 분석 &#128736;
+                        </td>
+                        <td>
+                            IT 트렌드 특강 &#10024;
+                        </td>
+                        <td rowspan="3">
+                            자바스크립트<br>
+                            심화 실습 &#128204;
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time">10:00 - 11:00</td>
+                        <td rowspan="2">
+                            알고리즘 문제풀이 &#127919;
+                        </td>
+                        <td>
+                            데이터베이스<br>
+                            SQL 실습 &#128202;
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time">11:00 - 12:00</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td class="time">12:00 - 13:00</td>
+                        <td colspan="5" class="lunch">
+                            &#127834; 점심 시간 &#127834;
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time">13:00 - 14:00</td>
+                        <td rowspan="4">
+                            UI/UX<br>
+                            디자인 표준 &#127912;
+                        </td>
+                        <td rowspan="2">
+                            리눅스<br>
+                            시스템 관리 &#128039;
+                        </td>
+                        <td rowspan="2">
+                            클라우드<br>
+                            AWS 기초 &#9729;&#65039;
+                        </td>
+                        <td rowspan="3">
+                            자료구조 &#128202;
+                        </td>
+                        <td>
+                            개인 프로젝트 &#128640;
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time">14:00 - 15:00</td>
+                        <td rowspan="3">
+                            오픈소스<br>
+                            소프트웨어 &#128275;
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time">15:00 - 16:00</td>
+                        <td rowspan="3">
+                            Git &amp; GitHub<br>
+                            버전 관리 &#128193;
+                        </td>
+                        <td rowspan="3">
+                            인공지능<br>
+                            머신러닝 기초 &#129302;
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time">16:00 - 17:00</td>
+                        <td rowspan="2">
+                            빅데이터<br>
+                            분석 실무 &#128200;
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="time">17:00 - 18:00</td>
+                        <td>
+                            취업 창업 특강 &#128188;
+                        </td>
+                        <td>
+                            주간 회고 &#128221;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
