@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[과제]나의 여행지</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 20px;
+            background-color: #f4f7fb;
+            font-family: Arial, "맑은 고딕", sans-serif;
+            color: #222;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        header {
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            margin: 0 0 15px;
+            font-size: 28px;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 350px;
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        section h2 {
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            font-size: 22px;
+        }
+
+        .album {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        figure {
+            margin: 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fafafa;
+        }
+
+        figure img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 7px;
+        }
+
+        figcaption {
+            margin-top: 9px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .video-box {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+            background-color: black;
+        }
+
+        .video-description {
+            margin-top: 10px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        footer {
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            .album {
+                grid-template-columns: 1fr;
+            }
+
+            figure img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1>🌍 나의 여행 앨범 🎵</h1>
+
+            <audio controls>
+                <source src="travel-music.mp3" type="audio/mpeg">
+                <source src="travel-music.ogg" type="audio/ogg">
+                사용 중인 브라우저는 오디오 재생을 지원하지 않습니다.
+            </audio>
+        </header>
+
+        <main>
+            <section>
+                <h2>📷 나의 여행 사진</h2>
+
+                <div class="album">
+                    <figure>
+                        <img
+                            src="media/hwasun.jpeg"
+                            alt="화순 판루스티코"
+                        >
+                        <figcaption>
+                            화순 판루스티코(베이커리) (2026.7)
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img
+                            src="media/ulsan.jpeg"
+                            alt="울산 캐니언파크"
+                        >
+                        <figcaption>
+                            울산 캐니언파크 (2026.7)
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img
+                            src="media/jeju.jpeg"
+                            alt="제주 한라수목원"
+                        >
+                        <figcaption>
+                            제주 한라수목원 (2025.11)
+                        </figcaption>
+                    </figure>
+
+                </div>
+            </section>
+
+            <section>
+                <h2>🎥 나의 여행 브이로그</h2>
+
+                <div class="video-box">
+                    <p class="video-description">
+                        WORLD iT SHOW 2026
+                    </p>
+
+                    <video>
+                        <source src="media/vlog.mp4" type="video/mp4">
+                        사용 중인 브라우저는 영상 재생을 지원하지 않습니다.
+                    </video>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 나의 여행 기록</p>
+        </footer>
+
+    </div>
+</body>
+</html>
