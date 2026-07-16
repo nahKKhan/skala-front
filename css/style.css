@@ -22,8 +22,9 @@ body {
 .main-body {
     margin: 0;
     color: #222;
-}
 
+    cursor: url("/html/media/cursor.png") 10 10, auto;
+}
 
 
 
@@ -1559,7 +1560,6 @@ video {
     margin: 0;
     padding: 40px 20px;
     background-color: #d0baea;
-    font-family: Arial, "맑은 고딕", sans-serif;
     color: #222;
 }
 
@@ -1602,6 +1602,7 @@ fieldset {
 
 legend {
     padding: 0 10px;
+    color:#8100a9;
     font-weight: bold;
     font-size: 18px;
 }
@@ -1618,6 +1619,7 @@ legend {
 
 .form-row > label {
     width: 130px;
+    color:#510e5e;
     font-weight: bold;
 }
 
@@ -1752,6 +1754,7 @@ legend {
 }
 
 .log-body h2{
+    color:#510e5e;
     margin-bottom:15px;
     font-size:22px;
 }
