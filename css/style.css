@@ -153,7 +153,6 @@ a {
 .main-content {
     min-height: 100vh;
     padding: 100px 30px;
-
     background-color: white;
 }
 
@@ -224,10 +223,11 @@ a {
 }
 
 .side-info {
+    width: 300px;
     margin-top: 80px;
-    padding: 25px;
+    padding: 20px;
 
-    background-color: #eee8f8;
+    background-color: #ecdeff;
     border-left: 6px solid #9b7ed6;
 }
 
@@ -260,8 +260,90 @@ a {
     list-style: none;
 }
 
+#weather {
+    border: 1px soild #000;
+}
+
+
+
+
+#weather select {
+    color: rgb(255, 255, 255);
+    width: 230px;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 8px;
+    outline: 2px solid #f8d4ff;
+    border-color: #faefff;
+    background:
+        url("/html/media/sky.png"),
+        rgba(255,255,255,.3);
+
+}
+
+#weather-box {
+    margin-top: 15px;
+    padding: 5px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.4);
+
+    line-height: 1.7;
+}
+
+
+
+#updown-game button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 12px 22px;
+    width: 230px;
+    border:1px solid #6b4293;
+    border-radius: 10px;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 255, 255, 0.9),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(225, 206, 255, 0.8),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 70% 85%,
+            rgba(211, 195, 255, 0.75),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #dce9ff,
+            #eee7ff,
+            #e1faff
+        );
+    color: rgb(0, 0, 0);
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        background-color 0.2s;
+}
+
+#updown-game button:hover {
+    background: #6b49cf;
+    transform: translateY(-3px);
+    color:white
+}
+
+
 @media (max-width: 786px) {
-    /* 본문과 사이드바를 세로 1열로 변경 */
     .content-layout {
         flex-direction: column;
     }
@@ -271,7 +353,6 @@ a {
         width: 100%;
     }
 
-    /* 바로가기 메뉴를 세로 1열로 변경 */
     .nav-bar {
         align-items: flex-start;
         flex-direction: column;

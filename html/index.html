@@ -98,12 +98,44 @@
                 </section>
 
                 <aside class="side-info">
-                    <h2>Additional Information</h2>
+                    <section id="weather">
+   
+                        <h2> 🌤  실시간 날씨</h2>
+                        <hr>
+                        <select id="city-select">
+                            <option value="">-- 도시 선택 --</option>
 
-                    <p>
-                        현재 HTML, CSS, JavaScript를 공부하며
-                        여러 웹페이지를 직접 만들어 보고 있습니다.
-                    </p>
+                            <option value="seoul">서울</option>
+                            <option value="busan">부산</option>
+                            <option value="jeju">제주</option>
+                            <option value="gwangju">광주</option>
+                        </select>
+
+                        <div id="weather-box">
+                            위치 정보가 표시됩니다.
+                        </div>
+                    </section>
+
+
+                    <section id="updown-game">
+                        <br>
+                        <h2 style="margin-top:50px;">미니 게임</h2>
+                        <hr>
+
+
+                        <button onclick="startUpDownGame()"> &#x1F53A; UP & DOWN !! &#x1F53B;</button>
+
+
+                        
+                        <h2 style="margin-top:50px;">기타 서비스</h2>
+                        <hr>
+
+                        
+                        <button onclick="startGradeCalculator()"> &#x1F521; 성적 계산기 &#x1F521;</button>
+                        <button onclick="showMyBag()"> &#x1F45B; What's in my bag &#x1F45B;</button>
+
+
+                    </section>
                 </aside>
 
             </div>
@@ -114,5 +146,11 @@
     <footer class="site-footer">
         <p>&copy; 2026 SKALA FRONT</p>
     </footer>
+    <script src="/script/upDown.js"></script>
+    <script src="/script/grade.js"></script>
+    <script src="/script/bag.js"></script>
+    <script
+    type="module"
+    src="/script/realtimeInfo.js"></script>
 </body>
 </html>

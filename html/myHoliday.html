@@ -6,6 +6,7 @@
 
     <title>[과제]나의 휴일 일과</title>
     <link rel="stylesheet" href="/css/style.css">
+
 </head>
 
 <body class="content-body">
@@ -184,19 +185,6 @@
             </section>
         </main>
     </div>
-
-    <script>
-        const stageCards = document.querySelectorAll(".stage-card");
-
-        stageCards.forEach(function (card) {
-            card.addEventListener("click", function () {
-                stageCards.forEach(function (otherCard) {
-                    otherCard.classList.remove("active");
-                });
-
-                card.classList.add("active");
-            });
-        });
-    </script>
+    <script src="/script/hoilday.js"></script>
 </body>
 </html>
