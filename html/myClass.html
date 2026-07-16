@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>[과제]나의 강의 일정</title>
 
     <style>
@@ -11,200 +12,427 @@
         }
 
         body {
+            min-height: 100vh;
             margin: 0;
             padding: 30px;
-            font-family: Arial, "맑은 고딕", sans-serif;
-            background-color: #f5f7fb;
-            color: #000000;
+
+            font-family:
+                Arial,
+                "Apple SD Gothic Neo",
+                "맑은 고딕",
+                sans-serif;
+
+            color: #202438;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(255, 255, 255, 0.9),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 15%,
+                    rgba(225, 206, 255, 0.8),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 70% 85%,
+                    rgba(211, 195, 255, 0.75),
+                    transparent 32%
+                ),
+                linear-gradient(
+                    135deg,
+                    #dce9ff,
+                    #eee7ff,
+                    #e1faff
+                );
+
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
         .timetable-wrap {
-            max-width: 1000px;
+            width: min(1100px, 100%);
             margin: 0 auto;
         }
 
-        hr {
-            background: rgb(224, 224, 224);
-            height: 3px;
-            border:0
+        .page-header {
+            margin-bottom: 35px;
         }
 
-        #table-div {
-            padding-top: 50px;
+        .top-nav {
+            margin-bottom: 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        .home-link {
+            padding: 11px 18px;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            background-color: rgba(255, 255, 255, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            border-radius: 100px;
+
+            box-shadow:
+                0 8px 25px rgba(57, 72, 116, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            font-size: 14px;
+            font-weight: bold;
+
+            transition:
+                transform 0.2s,
+                background-color 0.2s;
+        }
+
+        .home-link:hover {
+            transform: translateY(3px);
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .page-label {
+            color: rgba(32, 36, 56, 0.65);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
         h1 {
-            margin-bottom: 20px;
-            font-size: 28px;
+            margin: 0;
             text-align: center;
+
+            font-style: italic;
+            font-size: clamp(28px, 4vw, 42px);
+            letter-spacing: -2px;
         }
+
+        .description {
+            margin: 12px 0 0;
+
+            color: rgba(32, 36, 56, 0.68);
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .table-glass {
+            padding: 18px;
+
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 25px;
+
+            box-shadow:
+                0 25px 60px rgba(55, 65, 110, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+            backdrop-filter: blur(22px) saturate(135%);
+            -webkit-backdrop-filter: blur(22px) saturate(135%);
+
+            overflow-x: auto;
+        }
+
 
         table {
             width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed;
-            background-color: white;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            min-width: 850px;
 
+            border-collapse: separate;
+            border-spacing: 5px;
+            table-layout: fixed;
         }
 
         th,
         td {
-            border: 1px solid #777;
             padding: 10px;
+
+            border: 1px solid rgba(255, 255, 255, 0.67);
+            border-radius: 11px;
+
             text-align: center;
             vertical-align: middle;
             line-height: 1.5;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.78),
+                0 5px 15px rgba(67, 77, 115, 0.08);
+
+            transition:
+                transform 0.2s,
+                background-color 0.2s,
+                box-shadow 0.2s;
         }
 
-        th {
-            background-color: #eeeeee;
-            font-weight: bold;
+
+        thead th {
+            height: 58px;
+
+            background-color: rgba(255, 255, 255, 0.65);
+
+            font-size: 15px;
+            font-weight: 800;
         }
 
         .time {
-            width: 120px;
+            width: 125px;
             font-weight: bold;
-            background-color: #fafafa;
+        }
+
+        tbody tr {
+            height: 72px;
+        }
+
+        tbody td {
+            background-color: rgba(255, 255, 255, 0.43);
+            font-size: 14px;
+        }
+
+        tbody .time {
+            background-color: rgba(255, 255, 255, 0.62);
+            white-space: nowrap;
         }
 
         .lunch {
-            background-color: #fff7d6;
+            background-color: rgba(255, 243, 190, 0.72);
             font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        td:hover {
-            background-color: #eef5ff;
+        tbody td:not(.time):hover {
+            position: relative;
+            z-index: 2;
+
+            transform: translateY(3px) scale(1.015);
+
+            background-color: rgba(255, 255, 255, 0.78);
+
+            box-shadow:
+                0 12px 25px rgba(65, 80, 130, 0.16),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95);
+        }
+
+        .lunch:hover {
+            background-color: rgba(255, 243, 190, 0.92);
+        }
+
+
+        .page-footer {
+            margin-top: 22px;
+
+            color: rgba(32, 36, 56, 0.58);
+            text-align: left;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 18px 12px;
+            }
+
+            .table-glass {
+                padding: 10px;
+                border-radius: 18px;
+            }
+
+            .top-nav {
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 29px;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="timetable-wrap">
-        <h1>&#128197; 나의 강의 시간표</h1>
-        <br><hr>
 
-        <div id="table-div">
-            <table>
-                <thead>
-                    <tr>
-                        <th class="time">시간</th>
-                        <th>월요일</th>
-                        <th>화요일</th>
-                        <th>수요일</th>
-                        <th>목요일</th>
-                        <th>금요일</th>
-                    </tr>
-                </thead>
+        <header class="page-header">
+            <nav class="top-nav" aria-label="페이지 이동 메뉴">
+                <a href="index.html" class="home-link">
+                    <span aria-hidden="true">←</span>
+                    home
+                </a>
 
-                <tbody>
-                    <tr>
-                        <td class="time">09:00 - 10:00</td>
-                        <td rowspan="3">
-                            Vue.js<br>
-                            웹 프레임워크 &#128187;
-                        </td>
-                        <td>
-                            네트워크<br>
-                            보안 기초 &#128274;
-                        </td>
-                        <td rowspan="3">
-                            웹 시스템<br>
-                            설계 및 분석 &#128736;
-                        </td>
-                        <td>
-                            IT 트렌드 특강 &#10024;
-                        </td>
-                        <td rowspan="3">
-                            자바스크립트<br>
-                            심화 실습 &#128204;
-                        </td>
-                    </tr>
+                <span class="page-label">
+                    MY CLASS
+                </span>
+            </nav>
 
-                    <tr>
-                        <td class="time">10:00 - 11:00</td>
-                        <td rowspan="2">
-                            알고리즘 문제풀이 &#127919;
-                        </td>
-                        <td>
-                            데이터베이스<br>
-                            SQL 실습 &#128202;
-                        </td>
-                    </tr>
+            <h1>Class Time Table</h1>
 
-                    <tr>
-                        <td class="time">11:00 - 12:00</td>
-                        <td></td>
-                    </tr>
+            <p class="description">
+                셀에 마우스를 올리면 강의 정보가 강조됩니다.
+            </p>
+        </header>
 
-                    <tr>
-                        <td class="time">12:00 - 13:00</td>
-                        <td colspan="5" class="lunch">
-                            &#127834; 점심 시간 &#127834;
-                        </td>
-                    </tr>
+        <main>
+            <section
+                class="table-glass"
+                aria-label="주간 강의 시간표"
+            >
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="time">시간</th>
+                            <th>월요일</th>
+                            <th>화요일</th>
+                            <th>수요일</th>
+                            <th>목요일</th>
+                            <th>금요일</th>
+                        </tr>
+                    </thead>
 
-                    <tr>
-                        <td class="time">13:00 - 14:00</td>
-                        <td rowspan="4">
-                            UI/UX<br>
-                            디자인 표준 &#127912;
-                        </td>
-                        <td rowspan="2">
-                            리눅스<br>
-                            시스템 관리 &#128039;
-                        </td>
-                        <td rowspan="2">
-                            클라우드<br>
-                            AWS 기초 &#9729;&#65039;
-                        </td>
-                        <td rowspan="3">
-                            자료구조 &#128202;
-                        </td>
-                        <td>
-                            개인 프로젝트 &#128640;
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td class="time">09:00 - 10:00</td>
 
-                    <tr>
-                        <td class="time">14:00 - 15:00</td>
-                        <td rowspan="3">
-                            오픈소스<br>
-                            소프트웨어 &#128275;
-                        </td>
-                    </tr>
+                            <td rowspan="3">
+                                Vue.js<br>
+                                웹 프레임워크 &#128187;
+                            </td>
 
-                    <tr>
-                        <td class="time">15:00 - 16:00</td>
-                        <td rowspan="3">
-                            Git &amp; GitHub<br>
-                            버전 관리 &#128193;
-                        </td>
-                        <td rowspan="3">
-                            인공지능<br>
-                            머신러닝 기초 &#129302;
-                        </td>
-                    </tr>
+                            <td>
+                                네트워크<br>
+                                보안 기초 &#128274;
+                            </td>
 
-                    <tr>
-                        <td class="time">16:00 - 17:00</td>
-                        <td rowspan="2">
-                            빅데이터<br>
-                            분석 실무 &#128200;
-                        </td>
-                    </tr>
+                            <td rowspan="3">
+                                웹 시스템<br>
+                                설계 및 분석 &#128736;
+                            </td>
 
-                    <tr>
-                        <td class="time">17:00 - 18:00</td>
-                        <td>
-                            취업 창업 특강 &#128188;
-                        </td>
-                        <td>
-                            주간 회고 &#128221;
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                            <td>
+                                IT 트렌드 특강 &#10024;
+                            </td>
+
+                            <td rowspan="3">
+                                자바스크립트<br>
+                                심화 실습 &#128204;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="time">10:00 - 11:00</td>
+
+                            <td rowspan="2">
+                                알고리즘 문제풀이 &#127919;
+                            </td>
+
+                            <td>
+                                데이터베이스<br>
+                                SQL 실습 &#128202;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="time">11:00 - 12:00</td>
+
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td class="time">12:00 - 13:00</td>
+
+                            <td colspan="5" class="lunch">
+                                &#127834; 점심 시간 &#127834;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="time">13:00 - 14:00</td>
+
+                            <td rowspan="4">
+                                UI/UX<br>
+                                디자인 표준 &#127912;
+                            </td>
+
+                            <td rowspan="2">
+                                리눅스<br>
+                                시스템 관리 &#128039;
+                            </td>
+
+                            <td rowspan="2">
+                                클라우드<br>
+                                AWS 기초 &#9729;&#65039;
+                            </td>
+
+                            <td rowspan="3">
+                                자료구조 &#128202;
+                            </td>
+
+                            <td>
+                                개인 프로젝트 &#128640;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="time">14:00 - 15:00</td>
+
+                            <td rowspan="3">
+                                오픈소스<br>
+                                소프트웨어 &#128275;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="time">15:00 - 16:00</td>
+
+                            <td rowspan="3">
+                                Git &amp; GitHub<br>
+                                버전 관리 &#128193;
+                            </td>
+
+                            <td rowspan="3">
+                                인공지능<br>
+                                머신러닝 기초 &#129302;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="time">16:00 - 17:00</td>
+
+                            <td rowspan="2">
+                                빅데이터<br>
+                                분석 실무 &#128200;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="time">17:00 - 18:00</td>
+
+                            <td>
+                                취업 창업 특강 &#128188;
+                            </td>
+
+                            <td>
+                                주간 회고 &#128221;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer class="page-footer">
+            <p>
+                design : Liquid glass
+            </p>
+        </footer>
     </div>
 </body>
 </html>
