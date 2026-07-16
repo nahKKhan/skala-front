@@ -30,19 +30,24 @@
             background:
                 radial-gradient(
                     circle at 15% 20%,
-                    rgba(165, 143, 255, 0.5),
-                    transparent 32%
+                    rgba(255, 255, 255, 0.9),
+                    transparent 28%
                 ),
                 radial-gradient(
-                    circle at 85% 75%,
-                    rgba(209, 241, 247, 0.28),
-                    transparent 35%
+                    circle at 85% 15%,
+                    rgba(225, 206, 255, 0.8),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 70% 85%,
+                    rgba(211, 195, 255, 0.75),
+                    transparent 32%
                 ),
                 linear-gradient(
-                    145deg,
-                    #bec1ff,
-                    #beb3fc,
-                    #b7cbff
+                    135deg,
+                    #dce9ff,
+                    #eee7ff,
+                    #e1faff
                 );
 
             background-attachment: fixed;
@@ -60,12 +65,11 @@
         }
 
         .top-nav {
-            margin-bottom: 45px;
+            margin-bottom: 30px;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
         }
 
         .home-link {
@@ -73,18 +77,21 @@
 
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
 
-            background-color:  #ffca5c;
-            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            border-radius: 100px;
 
             box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.15),
-                0 8px 25px rgba(0, 0, 0, 0.2);
+                0 8px 25px rgba(57, 72, 116, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
 
             font-size: 14px;
             font-weight: bold;
-            color:black;
 
             transition:
                 transform 0.2s,
@@ -92,11 +99,17 @@
         }
 
         .home-link:hover {
-            transform: translateY(4px);
-            background-color:  #ebb13c;
+            transform: translateY(3px);
+            background-color: rgba(255, 255, 255, 0.7);
         }
 
-
+        .page-label {
+            color: rgba(32, 36, 56, 0.65);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
         .page-header {
             margin-bottom: 45px;
             text-align: center;
@@ -105,17 +118,18 @@
 
         h1 {
             margin: 0;
+            text-align: center;
 
-            color: white;
-            font-size: clamp(34px, 5vw, 58px);
-            font-weight: 900;
-            letter-spacing: -3px;
+            font-style: italic;
+            font-size: clamp(28px, 4vw, 42px);
+            letter-spacing: -2px;
         }
+
 
         .subtitle {
             margin: 15px 0 0;
 
-            color: rgba(255, 255, 255, 0.65);
+            color: rgba(70, 70, 70, 0.65);
             line-height: 1.7;
         }
 
@@ -313,14 +327,14 @@
         }
 
         .holiday-summary {
-            margin-top: 35px;
+            margin-top: 25px;
             padding: 22px 25px;
 
             background-color: rgba(255, 255, 255, 0.07);
             border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 14px;
 
-            color: rgba(255, 255, 255, 0.78);
+            color: rgba(0, 0, 0, 0.78);
             line-height: 1.8;
         }
 
@@ -387,7 +401,9 @@
                 <span aria-hidden="true">←</span>
                 HOME
             </a>
-
+            <span class="page-label">
+                MY PROFILE
+            </span>
         </nav>
 
         <header class="page-header">
