@@ -13,11 +13,16 @@
         body {
             margin: 0;
             padding: 40px 20px;
-            background-color: #f4f6f9;
+            background-color: #d0baea;
             font-family: Arial, "맑은 고딕", sans-serif;
             color: #222;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
         .signup-container {
             width: 100%;
             max-width: 700px;
@@ -26,7 +31,7 @@
             background-color: white;
             border: 1px solid #ddd;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px #746486;
         }
 
         header {
@@ -34,6 +39,7 @@
         }
 
         header h1 {
+            font-style: italic;
             margin: 0 0 10px;
             font-size: 28px;
         }
@@ -92,7 +98,7 @@
         select:focus,
         textarea:focus {
             outline: 2px solid #9bbcff;
-            border-color: #6f9df0;
+            border-color: #a265ba;
         }
 
         .required-text {
@@ -145,7 +151,7 @@
         }
 
         input[type="submit"] {
-            background-color: #4f7fd8;
+            background-color: #a265ba;
             color: white;
         }
 
@@ -155,7 +161,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #3f6fc8;
+            background-color: #763b8d;
         }
 
         input[type="reset"]:hover {
@@ -372,7 +378,7 @@
                         <legend>자기소개</legend>
 
                         <div class="form-row">
-                            <label for="introduction">나를 표현하는 한 줄 소개</label>
+                            <label for="introduction">나를 표현하는 <br> 한 줄 소개</label>
 
                             <textarea
                                 id="introduction"
@@ -393,7 +399,7 @@
         </main>
 
         <footer>
-            <p>입력한 정보는 회원가입 결과 페이지로 전달됩니다.</p>
+            <p><a href="index.html">나가기</a></p>
         </footer>
 
     </div>
