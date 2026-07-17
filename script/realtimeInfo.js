@@ -1,6 +1,5 @@
-import { getCurrentWeather } from "weatherAPI.js";
+import { getCurrentWeather } from "./weatherAPI.js";
 
-// 도시별 정보
 const cities = {
     seoul: {
         name: "서울",

@@ -352,10 +352,6 @@ function resetMissionResult() {
     );
 }
 
-/*
- * 모델 준비 여부와 그림 여부에 따라
- * 분석 버튼을 활성화합니다.
- */
 function updateGuessButton() {
     guessButton.disabled =
         !modelReady ||
@@ -363,9 +359,6 @@ function updateGuessButton() {
         isAnalyzing;
 }
 
-/*
- * AI에게 현재 캔버스 그림을 전달합니다.
- */
 function guessDrawing() {
     if (
         !modelReady ||
