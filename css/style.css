@@ -11,8 +11,19 @@ a {
     text-decoration: none;
 }
 
+@font-face {
+    font-family: "Diphylleia";
+    src: url("../Diphylleia/Diphylleia-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
-    font-family: "Hibur Mono", monospace;
+    font-family: "Diphylleia", serif;
+}
+
+body {
+    font-family: "Diphylleia", serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -23,7 +34,7 @@ body {
     margin: 0;
     color: #222;
 
-    cursor: url("/html/media/cursor.png") 10 10, auto;
+    cursor: url("../html/media/cursor.png") 10 10, auto;
 }
 
 
@@ -44,7 +55,7 @@ body {
             rgba(190, 160, 230, 0.2),
             rgba(190, 160, 230, 0.2)
         ),
-        url("/html/media/mainimg.png");
+        url("../html/media/mainimg.png");
 
     background-repeat: no-repeat;
     background-position: center;
@@ -732,7 +743,7 @@ body {
     outline: 2px solid #f8d4ff;
     border-color: #faefff;
     background:
-        url("/html/media/sky.png"),
+        url("../html/media/sky.png"),
         rgba(255,255,255,.3);
 
 }

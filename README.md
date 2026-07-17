@@ -5,12 +5,7 @@ SKALA 프론트엔드 프로젝트
 
 공통 필수 내용
 1) 별도 CSS 파일 생성 /css/style.css
-2) 전체 글꼴: 구글 폰트에서 마음에 드는 것을 선택하고 body 태그 선택자를 이용해 전체 폰트를 변경한다.
-- font-family: "Hibur Mono", monospace;
-- font-weight: 400;
-- font-style: normal;
-- "https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&family=Hibur+Mono&family=Nanum+Gothic+Coding&display=swap"
-
+2) 전체 글꼴: 구글 폰트에서 마음에 드는 것을 선택하고 body 태그 선택자를 이용해 전체 폰트를 변경한다. => Diphylleia
 3) 전체 줄간격, Color, 배경색을 적용한다.
 4) 제목 강조: h1, h2 태그에 색, 크기, Padding, Border 등을 넣어 꾸민다.
 5) 링크 스타일: 링크 컬러나, Decoration을 지정한다.
