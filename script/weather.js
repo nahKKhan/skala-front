@@ -1,4 +1,4 @@
-// 도시별 이름과 위도·경도 정보
+
 const cities = {
     seoul: {
         name: "서울",
@@ -28,12 +28,10 @@ const cities = {
 const citySelect = document.querySelector("#city-select");
 const weatherBox = document.querySelector("#weather-box");
 
-// 도시가 변경될 때 실행
 citySelect.addEventListener("change", async function () {
     const selectedCity = citySelect.value;
     const city = cities[selectedCity];
 
-    // 도시를 선택하지 않은 경우
     if (!city) {
         weatherBox.innerHTML =
             "<p>도시를 선택하면 날씨 정보가 표시됩니다.</p>";
@@ -41,7 +39,6 @@ citySelect.addEventListener("change", async function () {
         return;
     }
 
-    // 데이터를 받아오는 동안 표시
     weatherBox.innerHTML = `
         <p><strong>${city.name}</strong> 날씨를 불러오는 중... ⏳</p>
     `;
@@ -53,15 +50,13 @@ citySelect.addEventListener("change", async function () {
         `&current=temperature_2m,relative_humidity_2m`;
 
     try {
-        // Open-Meteo 서버에 비동기 요청
+
         const response = await fetch(url);
 
-        // 서버 응답에 문제가 있는 경우
         if (!response.ok) {
             throw new Error("날씨 데이터를 가져오지 못했습니다.");
         }
 
-        // JSON 데이터를 JavaScript 객체로 변환
         const data = await response.json();
 
         const temperature = data.current.temperature_2m;
@@ -73,7 +68,6 @@ citySelect.addEventListener("change", async function () {
         const humidityUnit =
             data.current_units.relative_humidity_2m;
 
-        // 받아온 날씨 정보를 화면에 출력
         weatherBox.innerHTML = `
             <h3 style=\"margin-top:5px; margin-bottom:5px;\">🌤 ${city.name}의 날씨</h3>
             <p>🌡 온도: ${temperature}${temperatureUnit}</p>

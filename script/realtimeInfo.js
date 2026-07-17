@@ -55,7 +55,7 @@ citySelect.addEventListener("change", async function () {
         );
 
         weatherBox.innerHTML = `
-            <h3 style=\margin-top:5px;margin-bottom:5px;\">🌤 ${city.name}의 정보</h3>
+            <h3 style="margin-top:5px; margin-bottom:5px;">🌤 ${city.name}의 정보</h3>
             <p>
                 🌡 온도:
                 ${weather.temperature}${weather.temperatureUnit}
