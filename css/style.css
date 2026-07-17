@@ -213,30 +213,470 @@ body {
     line-height: 1.8;
 }
 
-.example-content {
-    margin-top: 60px;
+/* =========================================
+   AI Drawing Challenge
+========================================= */
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+.drawing-challenge {
+    min-width: 0;
 }
 
-.example-box {
-    min-height: 220px;
-    padding: 25px;
+.drawing-title {
+    display: flex;
+    margin-bottom: 28px;
 
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
 }
 
-.example-box h3 {
+.drawing-title h2 {
     margin-top: 0;
+    margin-bottom: 14px;
 }
 
-.example-box p {
-    color: #666;
+.drawing-label,
+.drawing-card-label,
+.mission-label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: rgba(0, 0, 0, 0.55);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.drawing-description {
+    max-width: 650px;
+    margin: 0;
+
+    color: rgba(67, 36, 88, 0.68);
     line-height: 1.7;
 }
+
+.streak-card {
+    display: flex;
+    min-width: 105px;
+    padding: 14px 18px;
+
+    align-items: center;
+    flex-direction: column;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 18px;
+
+    text-align: center;
+}
+
+.streak-card span {
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.streak-card strong {
+    margin-top: 4px;
+
+    font-size: 28px;
+    line-height: 1;
+}
+
+/* 미션 카드 */
+
+.mission-card {
+    display: flex;
+    padding: 20px 22px;
+    margin-bottom: 22px;
+
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(160, 115, 255, 0.2),
+            rgba(255, 255, 255, 0.06)
+        );
+
+    border: 1px solid rgba(204, 179, 255, 0.22);
+    border-radius: 22px;
+}
+
+.mission-information {
+    min-width: 0;
+}
+
+.mission-information strong {
+    display: block;
+
+    font-size: clamp(18px, 3vw, 25px);
+    line-height: 1.3;
+}
+
+/* 게임 레이아웃 */
+
+.drawing-game-layout {
+    display: grid;
+    grid-template-columns:
+        minmax(300px, 1.15fr)
+        minmax(260px, 0.85fr);
+
+    gap: 20px;
+}
+
+.drawing-canvas-card,
+.prediction-card {
+    min-width: 0;
+    margin: 0;
+}
+
+.drawing-card-header {
+    display: flex;
+    margin-bottom: 18px;
+
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.drawing-card-header h3 {
+    margin: 0;
+}
+
+.model-status {
+    flex-shrink: 0;
+    padding: 7px 10px;
+
+    color: rgba(255, 255, 255, 0.52);
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.model-status.ready {
+    color: #d9ffc8;
+    background: rgba(116, 255, 79, 0.09);
+    border-color: rgba(116, 255, 79, 0.22);
+}
+
+.model-status.error {
+    color: #ffd0d0;
+    background: rgba(255, 89, 89, 0.1);
+    border-color: rgba(255, 89, 89, 0.22);
+}
+
+/* 캔버스 */
+
+#canvasContainer {
+    display: flex;
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #ffffff;
+    border-radius: 18px;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.08),
+        0 16px 35px rgba(0, 0, 0, 0.14);
+
+    touch-action: none;
+}
+
+#canvasContainer canvas {
+    display: block;
+    max-width: 100%;
+    height: auto !important;
+
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.brush-area {
+    display: flex;
+    margin-top: 16px;
+
+    align-items: center;
+    gap: 14px;
+}
+
+.brush-area label {
+    flex-shrink: 0;
+
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 13px;
+}
+
+.brush-area input {
+    width: 100%;
+
+    accent-color: #a983ff;
+}
+
+/* 버튼 */
+
+.drawing-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    margin-top: 16px;
+
+    gap: 10px;
+}
+
+.drawing-button {
+    padding: 12px 16px;
+
+    color: #ffffff;
+
+    border: 0;
+    border-radius: 13px;
+
+    font: inherit;
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        filter 0.2s ease;
+}
+
+.drawing-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.drawing-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.drawing-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.38;
+}
+
+.clear-button,
+.mission-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+}
+
+
+.guess-button {
+    background:
+        linear-gradient(
+            135deg,
+            #ba98ff,
+            #7350d5
+        );
+}
+
+/* 예측 전·로딩 */
+
+.prediction-card {
+    position: relative;
+}
+
+.prediction-message {
+    display: flex;
+    min-height: 280px;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+
+    color: rgba(255, 255, 255, 0.46);
+    text-align: center;
+    line-height: 1.65;
+}
+
+.prediction-message[hidden] {
+    display: none;
+}
+
+.prediction-icon {
+    font-size: 48px;
+}
+
+.prediction-spinner {
+    width: 38px;
+    height: 38px;
+
+    border: 4px solid rgba(255, 255, 255, 0.12);
+    border-top-color: #b996ff;
+    border-radius: 50%;
+
+    animation: predictionRotate 0.8s linear infinite;
+}
+
+/* 예측 목록 */
+
+#predictionList {
+    padding: 0;
+    margin: 8px 0 0;
+
+    list-style: none;
+}
+
+#predictionList li {
+    display: flex;
+    padding: 17px 0;
+
+    align-items: flex-start;
+    gap: 12px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+
+    animation: predictionAppear 0.45s ease both;
+}
+
+#predictionList li:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+#predictionList li:nth-child(3) {
+    animation-delay: 0.16s;
+}
+
+.prediction-rank {
+    display: flex;
+    width: 28px;
+    height: 28px;
+
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    color: rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.08);
+
+    border-radius: 9px;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.prediction-information {
+    flex: 1;
+    min-width: 0;
+}
+
+.prediction-text {
+    display: flex;
+    margin-bottom: 9px;
+
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.prediction-name {
+    overflow: hidden;
+
+    font-size: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.prediction-score {
+    flex-shrink: 0;
+
+    color: #d9c8ff;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.prediction-gauge {
+    height: 7px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 999px;
+}
+
+.prediction-gauge-bar {
+    display: block;
+    width: 0;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d4bcff,
+            #8763e7
+        );
+
+    border-radius: inherit;
+
+    transition: width 0.85s ease;
+}
+
+/* 미션 성공·실패 */
+
+.mission-result {
+    padding: 15px;
+    margin-top: 20px;
+
+    border-radius: 15px;
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+
+    animation: predictionAppear 0.45s ease;
+}
+
+.mission-result[hidden] {
+    display: none;
+}
+
+.mission-result.success {
+    color: #dcffcf;
+    background: rgba(104, 255, 71, 0.1);
+    border: 1px solid rgba(104, 255, 71, 0.2);
+}
+
+.mission-result.fail {
+    color: #ffe2be;
+    background: rgba(255, 178, 72, 0.1);
+    border: 1px solid rgba(255, 178, 72, 0.2);
+}
+
+.play-again-button{
+    width:100%;
+
+    margin-top:15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ba98ff,
+            #7350d5
+        );
+}
+
+.play-again-button[hidden]{
+    display:none;
+}
+
 
 .side-info {
     width: 300px;
@@ -426,6 +866,65 @@ body {
         font-size: 15px;
     }
 }
+
+@keyframes predictionRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes predictionAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 반응형 */
+
+@media (max-width: 900px) {
+    .drawing-game-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .prediction-message {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    .drawing-title {
+        flex-direction: column;
+    }
+
+    .streak-card {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .streak-card strong {
+        margin-top: 0;
+    }
+
+    .mission-card {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .mission-button {
+        width: 100%;
+    }
+
+    .drawing-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /*menu 공통*/
 

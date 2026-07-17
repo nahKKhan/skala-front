@@ -65,37 +65,141 @@
 
             <div class="content-layout">
 
-                <section class="main-column">
-                    <h2>My Story</h2>
+                <section class="main-column drawing-challenge">
+                    <div class="drawing-title">
+                        <div>
+                            <p class="drawing-label">AI EXPERIENCE</p>
+                            <h2>AI Drawing Challenge</h2>
 
-                    <p>
-                        이 공간에는 추후 소개하고 싶은 내용이나 프로젝트,
-                        학습 기록 등을 작성할 예정입니다.
-                    </p>
-
-                    <section class="example-content">
-                        <article class="example-box">
-                            <h3>About Me</h3>
-
-                            <p>
-                                나에 대한 간단한 소개가 들어갈 공간입니다.
+                            <p class="drawing-description">
+                                주어진 미션의 그림을 직접 그려보세요!!
+                                AI가 그림을 분석하고 무엇을 그렸는지 예측합니다.
                             </p>
+                        </div>
+
+                        <div class="streak-card">
+                            <span>BEST STREAK</span>
+                            <strong id="bestStreak">0</strong>
+                        </div>
+                    </div>
+
+                    <article class="mission-card">
+                        <div class="mission-information">
+                            <span class="mission-label">TODAY'S MISSION</span>
+
+                            <strong id="missionText">
+                                미션을 준비하고 있습니다.
+                            </strong>
+                        </div>
+
+                        <button
+                            type="button"
+                            id="newMissionButton"
+                            class="drawing-button mission-button"
+                        style="color: black;">
+                            New Mission
+                        </button>
+                    </article>
+
+                    <section class="drawing-game-layout">
+                      
+                        <article class="example-box drawing-canvas-card">
+                            <div class="drawing-card-header">
+                                <div>
+                                    <span class="drawing-card-label">
+                                        DRAWING CANVAS
+                                    </span>
+
+                                    <h3>여기에 그려보세요</h3>
+                                </div>
+
+                                <span id="modelStatus" class="model-status">
+                                    AI 준비 중
+                                </span>
+                            </div>
+
+                            <div id="canvasContainer"></div>
+
+                            <div class="brush-area">
+                                <label for="brushSize">
+                                    펜 굵기
+                                </label>
+
+                                <input
+                                    type="range"
+                                    id="brushSize"
+                                    min="4"
+                                    max="36"
+                                    value="16"
+                                >
+                            </div>
+
+                            <div class="drawing-buttons">
+                                <button
+                                    type="button"
+                                    id="clearButton"
+                                    class="drawing-button clear-button"
+                                >
+                                    Clear
+                                </button>
+
+                                <button
+                                    type="button"
+                                    id="guessButton"
+                                    class="drawing-button guess-button"
+                                    disabled
+                                >
+                                    Ask the AI
+                                </button>
+                            </div>
                         </article>
 
-                        <article class="example-box">
-                            <h3>My Study</h3>
+                        <article class="example-box prediction-card">
+                            <div class="drawing-card-header">
+                                <div>
+                                    <span class="drawing-card-label">
+                                        AI PREDICTION
+                                    </span>
 
-                            <p>
-                                현재 배우고 있는 내용과 학습 기록이 들어갈 공간입니다.
-                            </p>
-                        </article>
+                                    <h3>AI의 생각</h3>
+                                </div>
+                            </div>
 
-                        <article class="example-box">
-                            <h3>My Project</h3>
+                            <div id="emptyPrediction" class="prediction-message">
+                                <span class="prediction-icon">✦</span>
 
-                            <p>
-                                진행한 프로젝트와 결과물을 소개할 공간입니다.
-                            </p>
+                                <p>
+                                    그림을 그린 후<br>
+                                    AI에게 물어보세요.
+                                </p>
+                            </div>
+
+                            <div
+                                id="loadingPrediction"
+                                class="prediction-message"
+                                hidden
+                            >
+                                <div class="prediction-spinner"></div>
+
+                                <p>
+                                    AI가 그림을 분석하고 있습니다.
+                                </p>
+                            </div>
+
+                            <ol id="predictionList"></ol>
+
+                            <div
+                                id="missionResult"
+                                class="mission-result"
+                                hidden
+                            ></div>
+                            <button
+                                id="playAgainButton"
+                                class="drawing-button play-again-button"
+                                hidden
+                            >
+                                🔄 Play Again
+                            </button>
                         </article>
                     </section>
                 </section>
@@ -155,5 +259,8 @@
     <script
     type="module"
     src="/script/realtimeInfo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.12.2/dist/ml5.min.js"></script>
+    <script src="/script/drawingAI.js"></script>
 </body>
 </html>
