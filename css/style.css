@@ -217,10 +217,6 @@ body {
     line-height: 1.8;
 }
 
-/* =========================================
-   AI Drawing Challenge
-========================================= */
-
 .drawing-challenge {
     min-width: 0;
 }
@@ -290,7 +286,6 @@ body {
     line-height: 1;
 }
 
-/* 미션 카드 */
 
 .mission-card {
     display: flex;
@@ -323,7 +318,6 @@ body {
     line-height: 1.3;
 }
 
-/* 게임 레이아웃 */
 
 .drawing-game-layout {
     display: grid;
@@ -368,9 +362,9 @@ body {
 }
 
 .model-status.ready {
-    color: #d9ffc8;
+    color: #2d8e00;
     background: rgba(116, 255, 79, 0.09);
-    border-color: rgba(116, 255, 79, 0.22);
+    border-color: rgba(117, 255, 79, 0.583);
 }
 
 .model-status.error {
@@ -379,7 +373,6 @@ body {
     border-color: rgba(255, 89, 89, 0.22);
 }
 
-/* 캔버스 */
 
 #canvasContainer {
     display: flex;
@@ -443,7 +436,7 @@ body {
 .drawing-button {
     padding: 12px 16px;
 
-    color: #ffffff;
+    color: #000000;
 
     border: 0;
     border-radius: 13px;
@@ -530,7 +523,6 @@ body {
     animation: predictionRotate 0.8s linear infinite;
 }
 
-/* 예측 목록 */
 
 #predictionList {
     padding: 0;
@@ -653,15 +645,15 @@ body {
 }
 
 .mission-result.success {
-    color: #dcffcf;
-    background: rgba(104, 255, 71, 0.1);
-    border: 1px solid rgba(104, 255, 71, 0.2);
+ color: #2d8e00;
+    background: rgba(116, 255, 79, 0.09);
+    border-color: rgba(117, 255, 79, 0.583);
 }
 
 .mission-result.fail {
-    color: #ffe2be;
+    color: #ffc379;
     background: rgba(255, 178, 72, 0.1);
-    border: 1px solid rgba(255, 178, 72, 0.2);
+    border: 1px solid rgba(255, 179, 72, 0.594);
 }
 
 .play-again-button{
